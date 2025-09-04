@@ -50,3 +50,4 @@ export async function findUser(telefone, senha) {
   );
   return rows.length > 0 ? rows[0].id : null;
 }
+
