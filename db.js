@@ -43,6 +43,12 @@ export async function createUser(telefone, senha_hash) {
   return rows[0];
 }
 
+ export async function deletePlant(id) {
+  const [result] = await pool.query("delete from planta where id=?", [id]);
+  return result;
+}
+
+
 export async function findUser(telefone, senha) {
   const [rows] = await pool.query(
     "SELECT * FROM usuarios WHERE telefone = ? AND senha_hash = ?",
