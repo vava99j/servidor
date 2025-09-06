@@ -46,6 +46,18 @@ app.post("/plantas", async (req, res, next) => {
   }
 });
 
+app.delete("/plantas/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await deletePlant(id);
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ error: "Planta não encontrada" });
+    }
+  } catch (error) {
+    console.error("Erro ao deletar planta:", error);
+  }
+});
+
 app.post("/usuarios", async (req, res, next) => {
   try {
     const { telefone, senha_hash } = req.body;
