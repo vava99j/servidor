@@ -11,11 +11,7 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
 app.use(cors());
 
-app.delete('/plantas/:id', async (req, res) => {
-  const id = req.params.id;
-  await db.deletePlant(id);
-  res.status(200).json({ message: `Planta com ID ${id} removida.` });
-});
+
 
 app.get("/plantas", async (req, res, next) => {
   try {
