@@ -46,13 +46,18 @@ app.delete("/plantas/:id", async (req, res) => {
   try {
     const { id } = req.params;
     const result = await deletePlant(id);
+
     if (result.affectedRows === 0) {
       return res.status(404).json({ error: "Planta não encontrada" });
     }
+
+    res.status(200).json({ message: "Planta deletada com sucesso" }); 
   } catch (error) {
     console.error("Erro ao deletar planta:", error);
+    res.status(500).json({ error: "Erro interno do servidor" });
   }
 });
+
 
 app.post("/usuarios", async (req, res, next) => {
   try {

@@ -44,9 +44,10 @@ export async function createUser(telefone, senha_hash) {
 }
 
  export async function deletePlant(id) {
-  const [result] = await pool.query("delete from planta where id=?", [id]);
+  const [result] = await pool.query("DELETE FROM plantas WHERE id = ?", [id]);
   return result;
 }
+
 
 
 export async function findUser(telefone, senha) {
