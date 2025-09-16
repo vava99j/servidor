@@ -8,7 +8,8 @@ import {
   createUser, 
   findUser, 
   deletePlant,
-  updateArduino
+  updateArduino,
+  getArduino
 } from './db.js';
 
 dotenv.config();
