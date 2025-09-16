@@ -50,10 +50,10 @@ export async function createUser(telefone, senha_hash) {
 
 
 
-export async function findUser(telefone, senha) {
+export async function findUser(telefone, senha_hash) {
   const [rows] = await pool.query(
     "SELECT * FROM usuarios WHERE telefone = ? AND senha_hash = ?",
-    [telefone, senha]
+    [telefone, senha_hash]
   );
   return rows.length > 0 ? rows[0].id : null;
 }
