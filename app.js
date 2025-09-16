@@ -109,16 +109,17 @@ app.get("/arduinos/:cod_ard", async (req, res) => {
   try {
     const { cod_ard } = req.params;
     const arduino = await getArduino(cod_ard);
-    if (arduino.length > 0) {
-      res.json(arduino);
-    } else {
-      res.status(404).json({ error: "Arduino nao encontrado." });
+
+    if (!arduino || arduino.length === 0) {
+      return res.status(404).json({ error: "Arduino não encontrado" });
     }
+    res.json(arduino[0]);
   } catch (err) {
-    console.error("Erro ao buscar Arduino:", err);
+    console.error("Erro ao buscar Arduino:", err); // 👈 loga detalhe
     res.status(500).json({ error: "Erro interno do servidor" });
   }
 });
+
 
 app.use((err, req, res, next) => {
   console.error("🔥 Erro no servidor:", err.message);
