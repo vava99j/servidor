@@ -79,23 +79,6 @@ app.post("/login", async (req, res) => {
       return res.status(401).json({ error: "Telefone ou senha inválidos" });
     }
 
-app.get("/comandos/:id", (req, res) => {
-const arduinoId = parseInt(req.params.id);
-const comando = comandos.find(c => c.arduino_id === arduinoId && !c.executado);
-  
-  if (comando) {
-    comando.executado = true;
-    res.json({ comando: comando.tipo, valor: comando.valor, tempo: comando.tempo });
-  } else {
-    res.json({ comando: "NADA" });
-  }
-});
-
-app.post("/status", (req, res) => {
-  console.log("Status do Arduino:", req.body);
-  res.json({ ok: true });
-});
-
 
     res.json({ id: userId }); 
   } catch (err) {
@@ -113,3 +96,21 @@ const port = 3000;
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
 });
+
+app.get("/comandos/:id", (req, res) => {
+const arduinoId = parseInt(req.params.id);
+const comando = comandos.find(c => c.arduino_id === arduinoId && !c.executado);
+  
+  if (comando) {
+    comando.executado = true;
+    res.json({ comando: comando.tipo, valor: comando.valor, tempo: comando.tempo });
+  } else {
+    res.json({ comando: "NADA" });
+  }
+});
+
+app.post("/status", (req, res) => {
+  console.log("Status do Arduino:", req.body);
+  res.json({ ok: true });
+});
+
