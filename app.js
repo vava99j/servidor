@@ -1,7 +1,15 @@
 import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import { getPlant, getPlants, createPlant, createUser, findUser , deletePlant} from './db.js';
+import { 
+  getPlant, 
+  getPlants, 
+  createPlant, 
+  createUser, 
+  findUser, 
+  deletePlant,
+  updateArduino
+} from './db.js';
 
 dotenv.config();
 
@@ -10,8 +18,6 @@ const app = express();
 app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
 app.use(cors());
-
-
 
 app.get("/plantas", async (req, res, next) => {
   try {
@@ -58,7 +64,6 @@ app.delete("/plantas/:id", async (req, res) => {
   }
 });
 
-
 app.post("/usuarios", async (req, res, next) => {
   try {
     const { telefone, senha_hash } = req.body;
@@ -71,18 +76,46 @@ app.post("/usuarios", async (req, res, next) => {
 
 app.post("/login", async (req, res) => {
   const { telefone, senha_hash } = req.body;
-
   try {
     const userId = await findUser(telefone, senha_hash);
-
     if (!userId) {
       return res.status(401).json({ error: "Telefone ou senha inválidos" });
     }
-
-
     res.json({ id: userId }); 
   } catch (err) {
     console.error("Erro no login:", err);
+    res.status(500).json({ error: "Erro interno do servidor" });
+  }
+});
+
+
+app.put("/arduinos/:cod_ard", async (req, res) => {
+  try {
+    const { cod_ard } = req.params;
+    const { id_usuarios, id_planta } = req.body;
+ const updated = await updateArduino(cod_ard, id_usuarios, id_planta)
+    if (updated) {
+      res.json({ message: "Arduino atualizado com sucesso!" });
+    } else {
+      res.status(404).json({ error: "Arduino não encontrado." });
+    }
+  } catch (err) {
+    console.error("Erro ao atualizar Arduino:", err);
+    res.status(500).json({ error: "Erro interno do servidor" });
+  }
+});
+
+app.get("/arduinos/:cod_ard", async (req, res) => {
+  try {
+    const { cod_ard } = req.params;
+    const arduino = await getArduino(cod_ard);
+    if (arduino.length > 0) {
+      res.json(arduino);
+    } else {
+      res.status(404).json({ error: "Arduino nao encontrado." });
+    }
+  } catch (err) {
+    console.error("Erro ao buscar Arduino:", err);
     res.status(500).json({ error: "Erro interno do servidor" });
   }
 });
@@ -92,25 +125,7 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: err.message });
 });
 
-const port = 3000; 
+const port = 3000;
 app.listen(port, () => {
   console.log(`Servidor rodando na porta ${port}`);
 });
-
-app.get("/comandos/:id", (req, res) => {
-const arduinoId = parseInt(req.params.id);
-const comando = comandos.find(c => c.arduino_id === arduinoId && !c.executado);
-  
-  if (comando) {
-    comando.executado = true;
-    res.json({ comando: comando.tipo, valor: comando.valor, tempo: comando.tempo });
-  } else {
-    res.json({ comando: "NADA" });
-  }
-});
-
-app.post("/status", (req, res) => {
-  console.log("Status do Arduino:", req.body);
-  res.json({ ok: true });
-});
-
