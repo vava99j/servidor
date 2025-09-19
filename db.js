@@ -68,7 +68,7 @@ export async function updateArduino(cod_ard , id_usuarios , id_planta) {
 
 export async function getArduino(cod_ard) {
   const [rows] = await pool.query(
-    "SELECT a.id AS arduino_id, p.horarios FROM arduinos a JOIN plantas p ON a.id_planta = p.id WHERE a.cod_ard = ?;",
+    "SELECT p.horarios FROM arduinos a JOIN plantas p ON a.id_planta = p.id WHERE a.cod_ard = ?;",
     [cod_ard]
   );
   return rows;
