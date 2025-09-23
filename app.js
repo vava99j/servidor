@@ -90,7 +90,7 @@ app.post("/login", async (req, res) => {
 });
 
 
-app.put("/arduinos/:cod_ard", async (req, res) => {
+app.patch("/arduinos/:cod_ard", async (req, res) => {
   try {
     const { cod_ard } = req.params;
     const { id_usuarios, id_planta } = req.body;
