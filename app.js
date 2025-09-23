@@ -93,7 +93,7 @@ app.post("/login", async (req, res) => {
 app.patch("/arduinos/:cod_ard", async (req, res) => {
   try {
     const { cod_ard } = req.params;
-    const { id_usuarios, id_planta: horarios } = req.body;
+    const { id_usuarios, horarios } = req.body;
  const updated = await updateArduino(cod_ard, id_usuarios, horarios)
     if (updated) {
       res.json({ message: "Arduino atualizado com sucesso!" });
