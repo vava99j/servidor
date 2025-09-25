@@ -116,7 +116,7 @@ app.get("/arduinos/:cod_ard", async (req, res) => {
     }
     res.json(arduino[0]);
   } catch (err) {
-    console.error("Erro ao buscar Arduino:", err); // 👈 loga detalhe
+    console.error("Erro ao buscar Arduino:", err);
     res.status(500).json({ error: "Erro interno do servidor" });
   }
 });
