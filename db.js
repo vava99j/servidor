@@ -71,7 +71,7 @@ WHERE cod_ard=?`,
 
 export async function getArduino(cod_ard) {
   const [rows] = await pool.query(
-    "SELECT p.horarios FROM arduinos a JOIN plantas p ON a.id_planta = p.id WHERE a.cod_ard = ?;",
+    "SELECT*FROM arduino where=?",
     [cod_ard]
   );
   return rows;
