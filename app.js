@@ -8,7 +8,7 @@ import {
   createUser, 
   findUser, 
   deletePlant,
-  updateArduino,
+  updateArduinoByHorarios,
   getArduino
 } from './db.js';
 
@@ -94,7 +94,7 @@ app.patch("/arduinos/:cod_ard", async (req, res) => {
   try {
     const { cod_ard } = req.params;
     const { id_usuarios, horarios } = req.body;
- const updated = await updateArduino(cod_ard, id_usuarios, horarios)
+ const updated = await updateArduinoByHorarios(cod_ard, id_usuarios, horarios)
     if (updated) {
       res.json({ message: "Arduino atualizado com sucesso!" });
     } else {
