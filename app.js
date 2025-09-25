@@ -89,12 +89,13 @@ app.post("/login", async (req, res) => {
   }
 });
 
-
 app.patch("/arduinos/:cod_ard", async (req, res) => {
   try {
     const { cod_ard } = req.params;
-    const { id_usuarios, horarios } = req.body;
- const updated = await updateArduinoByHorarios(cod_ard, id_usuarios, horarios)
+    const { horarios } = req.body;
+
+    const updated = await updateArduinoByHorarios(cod_ard, horarios);
+
     if (updated) {
       res.json({ message: "Arduino atualizado com sucesso!" });
     } else {
@@ -106,20 +107,14 @@ app.patch("/arduinos/:cod_ard", async (req, res) => {
   }
 });
 
-app.get("/arduinos/:cod_ard", async (req, res) => {
-  try {
-    const { cod_ard } = req.params;
-    const arduino = await getArduino(cod_ard);
+export async function getArduino(cod_ard) {
+  const [rows] = await pool.query(
+    "SELECT * FROM arduino WHERE cod_ard = ?",
+    [cod_ard]
+  );
+  return rows;
+}
 
-    if (!arduino || arduino.length === 0) {
-      return res.status(404).json({ error: "Arduino não encontrado" });
-    }
-    res.json(arduino[0]);
-  } catch (err) {
-    console.error("Erro ao buscar Arduino:", err);
-    res.status(500).json({ error: "Erro interno do servidor" });
-  }
-});
 
 
 app.use((err, req, res, next) => {
