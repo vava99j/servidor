@@ -65,7 +65,13 @@ export async function updateArduinoByHorarios(cod_ard, horarios) {
   return result.affectedRows > 0;
 }
 
-
+export async function getArduinoByUser(usuario_id) {
+  const [rows] = await pool.query(
+    "SELECT * FROM arduino WHERE usuario_id = ?",
+    [usuario_id]
+  );
+  return rows;
+}
 
 export async function getArduino(cod_ard) {
   const [rows] = await pool.query(

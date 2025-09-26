@@ -39,6 +39,16 @@ app.get("/plantas/:id", async (req, res, next) => {
   }
 });
 
+app.get("/arduinos/:cod_ard", async (req, res, next) => {
+  try {
+    const cod_ard = req.params.cod_ard;
+    const arduino = await getArduino(cod_ard);
+    res.send(arduino);
+  } catch (err) {
+    next(err);
+  }
+});
+
 app.post("/plantas", async (req, res, next) => {
   try {
     const { usuario_id, horarios, foto_url } = req.body;
@@ -92,9 +102,10 @@ app.post("/login", async (req, res) => {
 app.patch("/arduinos/:cod_ard", async (req, res) => {
   try {
     const { cod_ard } = req.params;
+    const {usuario_id} = req.usuario_id
     const { horarios } = req.body;
 
-    const updated = await updateArduinoByHorarios(cod_ard, horarios);
+    const updated = await updateArduinoByHorarios(cod_ard, usuario_id ,horarios);
 
     if (updated) {
       res.json({ message: "Arduino atualizado com sucesso!" });
