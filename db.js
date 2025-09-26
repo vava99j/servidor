@@ -69,7 +69,7 @@ export async function updateArduinoByHorarios(cod_ard, horarios) {
 
 export async function getArduino(cod_ard) {
   const [rows] = await pool.query(
-    "SELECT*FROM arduino where=?",
+    "SELECT * FROM arduino WHERE cod_ard = ?",
     [cod_ard]
   );
   return rows;
