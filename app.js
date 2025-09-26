@@ -107,14 +107,6 @@ app.patch("/arduinos/:cod_ard", async (req, res) => {
   }
 });
 
-export async function getArduino(cod_ard) {
-  const [rows] = await pool.query(
-    "SELECT * FROM arduino WHERE cod_ard = ?",
-    [cod_ard]
-  );
-  return rows;
-}
-
 
 
 app.use((err, req, res, next) => {
