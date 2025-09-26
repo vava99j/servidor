@@ -60,13 +60,12 @@ export async function findUser(telefone, senha_hash) {
 
 export async function updateArduinoByHorarios(cod_ard, horarios) {
   const [result] = await pool.query(
-    `UPDATE arduino
-SET horarios = ?
-WHERE cod_ard=?`,
-   [horarios, cod_ard ]
+    "UPDATE arduino SET horarios = ? WHERE cod_ard = ?",
+    [horarios, cod_ard]
   );
   return result.affectedRows > 0;
 }
+
 
 
 export async function getArduino(cod_ard) {
