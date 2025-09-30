@@ -57,13 +57,16 @@ export async function findUser(telefone, senha_hash) {
   return rows.length > 0 ? rows[0].id : null;
 }
 
-export async function updateArduinoByHorarios(cod_ard, horarios) {
+export async function updateArduino(cod_ard, usuario_id, horarios) {
   const [result] = await pool.query(
-    "UPDATE arduino SET horarios = ? WHERE cod_ard = ?",
-    [horarios, cod_ard]
+    `UPDATE arduino
+     SET usuario_id = ?, horarios = ?
+     WHERE cod_ard = ?`,
+    [usuario_id, horarios, cod_ard]
   );
   return result.affectedRows > 0;
 }
+
 
 export async function getArduinoByUser(usuario_id) {
   const [rows] = await pool.query(

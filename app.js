@@ -102,10 +102,13 @@ app.post("/login", async (req, res) => {
 app.patch("/arduinos/:cod_ard", async (req, res) => {
   try {
     const { cod_ard } = req.params;
-    const {usuario_id} = req.usuario_id
-    const { horarios } = req.body;
+    const { usuario_id, horarios } = req.body;
 
-    const updated = await updateArduinoByHorarios(cod_ard, usuario_id ,horarios);
+    if (!usuario_id) {
+      return res.status(400).json({ error: "usuario_id é obrigatório" });
+    }
+
+    const updated = await updateArduino(cod_ard, usuario_id, horarios);
 
     if (updated) {
       res.json({ message: "Arduino atualizado com sucesso!" });
