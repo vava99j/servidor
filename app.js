@@ -8,7 +8,7 @@ import {
   createUser, 
   findUser, 
   deletePlant,
-  updateArduinoByHorarios,
+  updateArduino,
   getArduino
 } from './db.js';
 
