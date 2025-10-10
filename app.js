@@ -10,7 +10,8 @@ import {
   deletePlant,
   updateArduino,
   getArduino,
-  getArduinoByUser
+  getArduinoByUser,
+  deleteArduino
 } from './db.js';
 
 dotenv.config();
@@ -75,13 +76,21 @@ app.delete("/plantas/:id", async (req, res) => {
     const { id } = req.params;
     const result = await deletePlant(id);
 
-    if (result.affectedRows === 0) {
-      return res.status(404).json({ error: "Planta não encontrada" });
-    }
-
     res.status(200).json({ message: "Planta deletada com sucesso" }); 
   } catch (error) {
     console.error("Erro ao deletar planta:", error);
+    res.status(500).json({ error: "Erro interno do servidor" });
+  }
+});
+
+app.delete("/arduino/:id", async (req, res) => {
+  try {
+    const { id } = req.params;
+    const result = await deleteArduino(id);
+
+    res.status(200).json({ message: "Arduino deletada com sucesso" }); 
+  } catch (error) {
+    console.error("Erro ao deletar Arduino:", error);
     res.status(500).json({ error: "Erro interno do servidor" });
   }
 });

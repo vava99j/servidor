@@ -47,6 +47,11 @@ export async function createUser(telefone, senha_hash) {
   return result;
 }
 
+ export async function deleteArduino(id) {
+  const [result] = await pool.query("DELETE FROM arduino WHERE id = ?", [id]);
+  return result;
+}
+
 
 
 export async function findUser(telefone, senha_hash) {
