@@ -10,7 +10,7 @@ const pool = mysql.createPool({
   }
 });
 
-export async function getPlant(id) {
+export async function getPlantByUser(id) {
   const [rows] = await pool.query("SELECT * FROM plantas WHERE usuario_id = ?", [id]);
   return rows;
 }

@@ -2,14 +2,15 @@ import express from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
 import { 
-  getPlant, 
+  getPlantByUser, 
   getPlants, 
   createPlant, 
   createUser, 
   findUser, 
   deletePlant,
   updateArduino,
-  getArduino
+  getArduino,
+  getArduinoByUser
 } from './db.js';
 
 dotenv.config();
@@ -32,7 +33,17 @@ app.get("/plantas", async (req, res, next) => {
 app.get("/plantas/:id", async (req, res, next) => {
   try {
     const id = req.params.id;
-    const planta = await getPlant(id);
+    const planta = await getPlantByUser(id);
+    res.send(planta);
+  } catch (err) {
+    next(err);
+  }
+});
+
+app.get("/arduino/:id", async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const planta = await getArduinoByUser(id);
     res.send(planta);
   } catch (err) {
     next(err);
