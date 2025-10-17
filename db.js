@@ -10,6 +10,11 @@ const pool = mysql.createPool({
   }
 });
 
+export async function API_key(id) {
+  const [rows] = await pool.query("SELECT * FROM API_key WHERE id = ?", [id]);
+  return rows;
+}
+
 export async function getPlantByUser(id) {
   const [rows] = await pool.query("SELECT * FROM plantas WHERE usuario_id = ?", [id]);
   return rows;

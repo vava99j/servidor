@@ -11,7 +11,9 @@ import {
   updateArduino,
   getArduino,
   getArduinoByUser,
-  deleteArduino
+  deleteArduino,
+  API_key,
+  API_key
 } from './db.js';
 
 dotenv.config();
@@ -22,10 +24,20 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
 app.use(cors());
 
-app.get("/plantas", async (req, res, next) => {
+app.get("/plantas", async (res, next) => {
   try {
     const [plantas] = await getPlants();
     res.send(plantas);
+  } catch (err) {
+    next(err);
+  }
+});
+
+app.get("/API/:id", async (req, res, next) => {
+  try {
+    const id = req.params.id;
+    const planta = await API_key(id);
+    res.send(planta);
   } catch (err) {
     next(err);
   }
