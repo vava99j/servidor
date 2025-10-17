@@ -11,7 +11,7 @@ const pool = mysql.createPool({
 });
 
 export async function API_key(id) {
-  const [rows] = await pool.query("SELECT * FROM API_key WHERE id = ?", [id]);
+  const [rows] = await pool.query("SELECT * FROM api_key WHERE id = ?", [id]);
   return rows;
 }
 
