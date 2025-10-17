@@ -12,7 +12,6 @@ import {
   getArduino,
   getArduinoByUser,
   deleteArduino,
-  API_key,
   API_key
 } from './db.js';
 
