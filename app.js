@@ -23,7 +23,7 @@ app.use(express.json({ limit: '10mb' }));
 app.use(express.urlencoded({ limit: '10mb', extended: true }));
 app.use(cors());
 
-app.get("/plantas", async (res, next) => {
+app.get("/plantas", async (req, res, next) => {
   try {
     const [plantas] = await getPlants();
     res.send(plantas);
