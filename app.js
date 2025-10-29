@@ -12,7 +12,8 @@ import {
   getArduino,
   getArduinoByUser,
   deleteArduino,
-  API_key
+  API_key,
+  pathUmidade
 } from './db.js';
 
 dotenv.config();
@@ -140,6 +141,28 @@ app.patch("/arduinos/:cod_ard", async (req, res) => {
     }
 
     const updated = await updateArduino(cod_ard, usuario_id, horarios);
+
+    if (updated) {
+      res.json({ message: "Arduino atualizado com sucesso!" });
+    } else {
+      res.status(404).json({ error: "Arduino não encontrado." });
+    }
+  } catch (err) {
+    console.error("Erro ao atualizar Arduino:", err);
+    res.status(500).json({ error: "Erro interno do servidor" });
+  }
+});
+
+app.patch("/arduinos/:cod_ard/umd", async (req, res) => {
+  try {
+    const { cod_ard } = req.params;
+    const { umd } = req.body;
+
+    if (!usuario_id) {
+      return res.status(400).json({ error: "usuario_id é obrigatório" });
+    }
+
+    const updated = await updateArduino(cod_ard, umd);
 
     if (updated) {
       res.json({ message: "Arduino atualizado com sucesso!" });

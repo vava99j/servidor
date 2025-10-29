@@ -94,4 +94,10 @@ export async function getArduino(cod_ard) {
   return rows;
 }
 
-
+export async function pathUmidade(cod_ard, umd) {
+  const [rows] = await pool.query(
+    "UPDATE arduino SET umd = ? WHERE cod_ard = ?",
+    [cod_ard, umd]
+  );
+  return rows;
+}
