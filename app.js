@@ -152,6 +152,7 @@ app.patch("/arduinos/:cod_ard", async (req, res) => {
     res.status(500).json({ error: "Erro interno do servidor" });
   }
 });
+
 app.patch("/arduinos/:cod_ard/:umd", async (req, res) => {
   try {
     const { cod_ard, umd } = req.params; 
