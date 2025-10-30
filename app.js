@@ -156,7 +156,7 @@ app.patch("/arduinos/:cod_ard/:umd", async (req, res) => {
   try {
     const { cod_ard, umd } = req.params; 
 
-    const updated = await updateArduino(cod_ard, umd);
+    const updated = await pathUmidade(cod_ard, umd);
 
     if (updated) {
       res.json({ message: "Arduino atualizado com sucesso!" });
