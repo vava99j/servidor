@@ -152,15 +152,9 @@ app.patch("/arduinos/:cod_ard", async (req, res) => {
     res.status(500).json({ error: "Erro interno do servidor" });
   }
 });
-
 app.patch("/arduinos/:cod_ard/:umd", async (req, res) => {
   try {
-    const { cod_ard } = req.params;
-    const { umd } = req.body;
-
-    if (!usuario_id) {
-      return res.status(400).json({ error: "usuario_id é obrigatório" });
-    }
+    const { cod_ard, umd } = req.params; 
 
     const updated = await updateArduino(cod_ard, umd);
 
@@ -174,6 +168,7 @@ app.patch("/arduinos/:cod_ard/:umd", async (req, res) => {
     res.status(500).json({ error: "Erro interno do servidor" });
   }
 });
+
 
 
 
