@@ -153,7 +153,7 @@ app.patch("/arduinos/:cod_ard", async (req, res) => {
   }
 });
 
-app.patch("/arduinos/:cod_ard/umd", async (req, res) => {
+app.patch("/arduinos/:cod_ard/:umd", async (req, res) => {
   try {
     const { cod_ard } = req.params;
     const { umd } = req.body;
