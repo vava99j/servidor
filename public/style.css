@@ -92,6 +92,7 @@ body.dark-mode {
 .navbar ul {
   display: flex;
   flex-direction: row;
+  justify-content: space-evenly;
   flex-wrap: wrap;
   padding: '10%';
   max-height: 0;
