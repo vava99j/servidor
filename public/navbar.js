@@ -14,12 +14,10 @@ template.innerHTML = `
       <li><a href="/home">Home</a></li>
       <li><a href="/sobre">Sobre Nós</a></li>
       <li><a href="/infos">Infos Técnicas</a></li>
-  
-
-    <div class="buttons">
-      <button id="modeToggle">🌙</button>
-      <a href="/contato" class="btn">Contacte-nos</a>
-    </div>
+      <li><a href="/contato">Contacte-nos</a></li>
+      <li><button id="modeToggle">🌙</button></li>
+      
+    
       </ul>
 
   </div>
