@@ -225,4 +225,5 @@ app.get("/home", (req, res) => {
 
 app.listen(PORT, () => {
   console.log(`Servidor Express rodando em http://localhost:${PORT}`);
+  console.log(`Servidor Express rodando em https://servidor-632w.onrender.com/home`);
 });

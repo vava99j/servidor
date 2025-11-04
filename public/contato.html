@@ -1,187 +1,84 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contato | Tec-Hor</title>
+  <link rel="shortcut icon" href="assets/images/47b3204c-f074-4262-87dc-d95bf20c03d6-removebg-preview-1.png" type="image/x-icon" />
 
-  <link rel="shortcut icon" href="assets/images/47b3204c-f074-4262-87dc-d95bf20c03d6-removebg-preview-1.png"
-    type="image/x-icon" />
-
-  <!-- Fontes Google -->
-  <link
-    href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Golos+Text:wght@400;500;600;700;800;900&display=swap"
-    rel="stylesheet">
+  <!-- Fontes -->
+  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Golos+Text:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
 
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Golos Text', sans-serif; background-color: #f6fff6; color: #2b7a0b; }
+    header { text-align: center; margin-top: 2rem; }
+    h1 { font-family: 'Dela Gothic One', cursive; }
 
+    .btn { display: inline-block; font-size: 1.1rem; padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; transition: 0.3s; font-weight: 600; border: 2px solid #2b7a0b; color: #2b7a0b; }
+    .btn:hover { background-color: #2b7a0b; color: #fff; }
 
-    .btn-light {
-      background-color: #fff;
-      color: #2b7a0b;
-      padding: 0.5rem 1rem;
-      border-radius: 20px;
-      font-weight: 600;
-      text-decoration: none;
-      transition: 0.3s;
-    }
+    form { max-width: 600px; margin: 2rem auto; background: #fff; padding: 2rem; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
+    form label { display: block; font-weight: 600; margin-bottom: 0.5rem; }
+    form input, form textarea { width: 100%; padding: 0.8rem; border: 2px solid #cce8cc; border-radius: 10px; margin-bottom: 1.2rem; outline: none; transition: border-color 0.3s; }
+    form input:focus, form textarea:focus { border-color: #2b7a0b; }
+    form button { width: 100%; background-color: #2b7a0b; color: white; padding: 0.9rem; border: none; border-radius: 25px; font-size: 1.1rem; cursor: pointer; }
+    form button:hover { background-color: #226507; }
 
-    .btn-light:hover {
-      background-color: #c6f5c3;
-    }
-
-    /* ===== SEÇÃO DE CONTATO ===== */
-    section {
-      text-align: center;
-      padding: 8rem 2rem 4rem;
-    }
-
-
-    section p {
-      color: #555;
-      font-size: 1.2rem;
-      margin-bottom: 2rem;
-    }
-
-    .btn {
-      display: inline-block;
-      font-size: 1.1rem;
-      padding: 0.8rem 1.5rem;
-      border-radius: 25px;
-      text-decoration: none;
-      transition: 0.3s;
-      font-weight: 600;
-    }
-
-    .btn-success {
-      background-color: #2b7a0b;
-      color: #fff;
-    }
-
-    .btn-success:hover {
-      background-color: #226507;
-    }
-
-    .btn-outline-success {
-      border: 2px solid #2b7a0b;
-      color: #2b7a0b;
-    }
-
-    .btn-outline-success:hover {
-      background-color: #2b7a0b;
-      color: #fff;
-    }
-
-    /* ===== FORMULÁRIO ===== */
-    form {
-      max-width: 600px;
-      margin: 2rem auto;
-      background: #fff;
-      padding: 2rem;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      text-align: left;
-    }
-
-    form label {
-      display: block;
-      font-weight: 600;
-      color: #2b7a0b;
-      margin-bottom: 0.5rem;
-    }
-
-    form input,
-    form textarea {
-      width: 100%;
-      padding: 0.8rem;
-      border: 2px solid #cce8cc;
-      border-radius: 10px;
-      font-size: 1rem;
-      margin-bottom: 1.2rem;
-      outline: none;
-      transition: border-color 0.3s;
-    }
-
-    form input:focus,
-    form textarea:focus {
-      border-color: #2b7a0b;
-    }
-
-    form button {
-      display: block;
-      width: 100%;
-      background-color: #2b7a0b;
-      color: white;
-      padding: 0.9rem;
-      font-size: 1.1rem;
-      border: none;
-      border-radius: 25px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-    }
-
-    form button:hover {
-      background-color: #226507;
-    }
-
-    /* ===== RESPONSIVIDADE ===== */
-    @media (max-width: 768px) {
-      nav {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-
-      nav ul {
-        flex-wrap: wrap;
-        justify-content: center;
-      }
-
-      section {
-        padding-top: 10rem;
-      }
-    }
+    @media (max-width: 768px) { header { margin-top: 5rem; } }
   </style>
   <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-
   <nav-bar></nav-bar>
-<header>
-    <h1> <br>Entre em Contato 💬</h1>
-</header>
 
-    <div class="btn">
-      <a class="btn btn-outline-success m-2" href="mailto:svagnerjorge2@gmail.com">📧 Enviar Email</a>
-      <a class="btn btn-outline-success m-2"
-        href="https://wa.me/5511978315772?text=Olá! Gostaria de saber mais sobre o Tec-Hor.">💬 Enviar WhatsApp</a>
-    </div>
+  <header>
+    <h1>Entre em Contato 💬</h1>
+  </header>
 
+  <div style="text-align:center; margin-top: 1rem;">
+    <a class="btn" href="mailto:svagnerjorge2@gmail.com">📧 Enviar Email</a>
+    <a class="btn" href="https://wa.me/5511978315772?text=Olá! Gostaria de saber mais sobre o Tec-Hor.">💬 WhatsApp</a>
+  </div>
 
   <form id="contatoForm">
-    
-    <label>Escolha como deseja falar conosco ou envie uma mensagem diretamente: <br><br></label>
+    <label for="nome">Nome:</label>
+    <input type="text" id="nome" required>
 
-  <label for="nome">Nome:</label>
-  <input type="text" id="nome" required>
+    <label for="email">E-mail:</label>
+    <input type="email" id="email" required>
 
-  <label for="email">E-mail:</label>
-  <input type="email" id="email" required>
+    <label for="mensagem">Mensagem:</label>
+    <textarea id="mensagem" required></textarea>
 
-  <label for="mensagem">Mensagem:</label>
-  <textarea id="mensagem" required></textarea>
+    <button type="submit">Enviar Mensagem 💌</button>
+  </form>
 
-  <button type="submit">Enviar Mensagem 💌</button>
-</form>
+  <script type="module" src="navbar.js"></script>
 
-    <script type="module" src="navbar.js"></script>
+  <script>
+  document.getElementById("contatoForm").addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const nome = document.getElementById("nome").value;
+    const email = document.getElementById("email").value;
+    const mensagem = document.getElementById("mensagem").value;
 
+    try {
+      const resposta = await fetch("/enviar", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ nome, email, mensagem }),
+      });
+
+      const texto = await resposta.text();
+      alert(texto);
+      document.getElementById("contatoForm").reset();
+    } catch (err) {
+      alert("Erro ao enviar mensagem 😢");
+      console.error(err);
+    }
+  });
+  </script>
 </body>
-
 </html>
