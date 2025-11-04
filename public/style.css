@@ -192,10 +192,9 @@ body.dark-mode {
   text-decoration: none;
 }
 
-/* CABEÇALHO */
 header {
   text-align: center;
-  padding-bottom: 15%;
+  padding-bottom: 10%;
 }
 
 header h1 {
@@ -213,15 +212,12 @@ header p {
 header img {
   max-width: 80%;
   display: block;
-  /* Garante que se comporta como um bloco para margin auto */
   margin: 0 auto;
-  /* Centraliza o bloco */
   border-radius: 20px;
   border: 4px solid var(--verde);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
-/* SEÇÃO DE VANTAGENS */
 section {
   text-align: center;
   padding: 60px 20px;
@@ -265,9 +261,6 @@ section h2 {
   margin-bottom: 10px;
 }
 
-
-
-/* SOBRE O PROJETO */
 .sobre {
   display: flex;
   align-items: center;
@@ -299,7 +292,6 @@ section h2 {
   background-color: #1e7e34;
 }
 
-/* RODAPÉ */
 footer {
   text-align: center;
   padding: 20px;

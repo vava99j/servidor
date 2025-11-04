@@ -1,31 +1,83 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Contato | Tec-Hor</title>
-  <link rel="shortcut icon" href="assets/images/47b3204c-f074-4262-87dc-d95bf20c03d6-removebg-preview-1.png" type="image/x-icon" />
-
-  <!-- Fontes -->
-  <link href="https://fonts.googleapis.com/css2?family=Dela+Gothic+One&family=Golos+Text:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
-
+  <link rel="shortcut icon" href="assets/images/47b3204c-f074-4262-87dc-d95bf20c03d6-removebg-preview-1.png"
+    type="image/x-icon" />
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-    body { font-family: 'Golos Text', sans-serif; background-color: #f6fff6; color: #2b7a0b; }
-    header { text-align: center; margin-top: 2rem; }
-    h1 { font-family: 'Dela Gothic One', cursive; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-    .btn { display: inline-block; font-size: 1.1rem; padding: 0.8rem 1.5rem; border-radius: 25px; text-decoration: none; transition: 0.3s; font-weight: 600; border: 2px solid #2b7a0b; color: #2b7a0b; }
-    .btn:hover { background-color: #2b7a0b; color: #fff; }
+    .btn {
+      display: inline-block;
+      font-size: 1.1rem;
+      padding: 0.8rem 1.5rem;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: 0.3s;
+      font-weight: 600;
+      border: 2px solid #2b7a0b;
+      color: #2b7a0b;
+    }
 
-    form { max-width: 600px; margin: 2rem auto; background: #fff; padding: 2rem; border-radius: 15px; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-    form label { display: block; font-weight: 600; margin-bottom: 0.5rem; }
-    form input, form textarea { width: 100%; padding: 0.8rem; border: 2px solid #cce8cc; border-radius: 10px; margin-bottom: 1.2rem; outline: none; transition: border-color 0.3s; }
-    form input:focus, form textarea:focus { border-color: #2b7a0b; }
-    form button { width: 100%; background-color: #2b7a0b; color: white; padding: 0.9rem; border: none; border-radius: 25px; font-size: 1.1rem; cursor: pointer; }
-    form button:hover { background-color: #226507; }
+    .btn:hover {
+      background-color: #2b7a0b;
+      color: #fff;
+    }
 
-    @media (max-width: 768px) { header { margin-top: 5rem; } }
+    form {
+      max-width: 600px;
+      margin: 2rem auto;
+      background: #fff;
+      padding: 2rem;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px #0000001a;
+    }
+
+    form label {
+      display: block;
+      font-weight: 600;
+      margin-bottom: 0.5rem;
+      color: #2b7a0b;
+    }
+
+    form input,
+    form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      border: 2px solid #cce8cc;
+      border-radius: 10px;
+      margin-bottom: 1.2rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    form input:focus,
+    form textarea:focus {
+      border-color: #2b7a0b;
+    }
+
+    form button {
+      width: 100%;
+      background-color: #2b7a0b;
+      color: white;
+      padding: 0.9rem;
+      border: none;
+      border-radius: 25px;
+      font-size: 1.1rem;
+      cursor: pointer;
+    }
+
+    form button:hover {
+      background-color: #226507;
+    }
+
   </style>
   <link rel="stylesheet" href="style.css">
 </head>
@@ -34,10 +86,11 @@
   <nav-bar></nav-bar>
 
   <header>
-    <h1>Entre em Contato 💬</h1>
+    <h1><br>Entre em Contato</h1>
   </header>
 
-  <div style="text-align:center; margin-top: 1rem;">
+
+  <div style="text-align:center;">
     <a class="btn" href="mailto:svagnerjorge2@gmail.com">📧 Enviar Email</a>
     <a class="btn" href="https://wa.me/5511978315772?text=Olá! Gostaria de saber mais sobre o Tec-Hor.">💬 WhatsApp</a>
   </div>
@@ -56,29 +109,32 @@
   </form>
 
   <script type="module" src="navbar.js"></script>
-
+  <footer>
+    <p>© 2025 Tec-Hor | Todos os direitos reservados 💚</p>
+  </footer>
   <script>
-  document.getElementById("contatoForm").addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const nome = document.getElementById("nome").value;
-    const email = document.getElementById("email").value;
-    const mensagem = document.getElementById("mensagem").value;
+    document.getElementById("contatoForm").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const nome = document.getElementById("nome").value;
+      const email = document.getElementById("email").value;
+      const mensagem = document.getElementById("mensagem").value;
 
-    try {
-      const resposta = await fetch("/enviar", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ nome, email, mensagem }),
-      });
+      try {
+        const resposta = await fetch("/enviar", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ nome, email, mensagem }),
+        });
 
-      const texto = await resposta.text();
-      alert(texto);
-      document.getElementById("contatoForm").reset();
-    } catch (err) {
-      alert("Erro ao enviar mensagem 😢");
-      console.error(err);
-    }
-  });
+        const texto = await resposta.text();
+        alert(texto);
+        document.getElementById("contatoForm").reset();
+      } catch (err) {
+        alert("Erro ao enviar mensagem 😢");
+        console.error(err);
+      }
+    });
   </script>
 </body>
+
 </html>

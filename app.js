@@ -203,10 +203,8 @@ app.post("/enviar", async (req, res) => {
 });
 
 
-// Servir arquivos estáticos da pasta "public"
 app.use(express.static(path.join(__dirname, "public")));
 
-// Rotas específicas (opcional)
 app.get("/sobre", (req, res) => {
   res.sendFile(path.join(__dirname, "public", "sobre.html"));
 });
