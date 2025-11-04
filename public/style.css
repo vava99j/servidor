@@ -16,14 +16,12 @@
     color: var(--texto);
     transition: 0.4s;
     display: block;
-    /* ou flex se realmente precisar, mas cuidado */
     max-width: 100%;
-    /* garante que não extrapole a tela */
     margin: 0 auto;
-    /* centraliza */
     text-align: center;
     justify-items: center;
   }
+
 }
 
 
@@ -63,20 +61,15 @@ body.dark-mode {
   color: var(--texto);
   transition: 0.4s;
   display: block;
-  /* ou flex se realmente precisar, mas cuidado */
   max-width: 90%;
-  /* garante que não extrapole a tela */
   margin: 0 auto;
-  /* centraliza */
   text-align: center;
 }
 
 .wrapper {
   max-width: 1200px;
-  /* largura máxima do conteúdo */
   margin: 0 auto;
   padding: 0 15px;
-  /* margem interna para mobile */
 }
 
 .navbar {
@@ -199,7 +192,7 @@ header {
 
 header h1 {
   color: var(--verde);
-  font-size: 4rem;
+  font-size: 3rem;
   font-weight: 700;
 }
 
