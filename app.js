@@ -1,6 +1,4 @@
-import express from 'express';
 import dotenv from 'dotenv';
-import cors from 'cors';
 import { 
   getPlantByUser, 
   getPlants, 
@@ -13,16 +11,22 @@ import {
   getArduinoByUser,
   deleteArduino,
   API_key,
-  pathUmidade
+  pathUmidade,
+  ContatoWeb
 } from './db.js';
+import express from "express";
+import path from "path";
+import { fileURLToPath } from "url";
+import cors from "cors";
+
+
 
 dotenv.config();
-
 const app = express();
-
-app.use(express.json({ limit: '10mb' }));
-app.use(express.urlencoded({ limit: '10mb', extended: true }));
 app.use(cors());
+
+app.use(express.json({ limit: "10mb" }));
+app.use(express.urlencoded({ limit: "10mb", extended: true }));
 
 app.get("/plantas", async (req, res, next) => {
   try {
@@ -178,7 +182,47 @@ app.use((err, req, res, next) => {
   res.status(500).json({ error: err.message });
 });
 
-const port = 3000;
-app.listen(port, () => {
-  console.log(`Servidor rodando na porta ${port}`);
+const PORT = 8000;
+
+
+app.use(cors());
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+
+app.post("/enviar", async (req, res) => {
+  try {
+    const { nome, email, mensagem } = req.body;
+    await ContatoWeb(nome, email, mensagem);
+    res.send("Mensagem enviada com sucesso 💚");
+  } catch (err) {
+    console.error("Erro ao salvar mensagem:", err);
+    res.status(500).send("Erro ao salvar mensagem 😢");
+  }
+});
+
+
+// Servir arquivos estáticos da pasta "public"
+app.use(express.static(path.join(__dirname, "public")));
+
+// Rotas específicas (opcional)
+app.get("/sobre", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "sobre.html"));
+});
+
+app.get("/infos", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "infos.html"));
+});
+
+app.get("/contato", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "contato.html"));
+});
+
+app.get("/home", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "index.html"));
+});
+
+app.listen(PORT, () => {
+  console.log(`Servidor Express rodando em http://localhost:${PORT}`);
 });

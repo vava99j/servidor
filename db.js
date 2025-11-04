@@ -101,3 +101,11 @@ export async function pathUmidade(cod_ard, umd) {
   );
   return rows;
 }
+
+export async function ContatoWeb(nome, email, mensagem) {
+  const [result] = await pool.query(
+    "INSERT INTO contatos (nome, email, mensagem) VALUES (?, ?, ?)",
+    [nome, email, mensagem]
+  );
+  return result.insertId;
+}
