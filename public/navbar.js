@@ -43,3 +43,32 @@ class Navbar extends HTMLElement {
 }
 
 customElements.define('nav-bar', Navbar);
+
+async function troca(idElemento, ...listaDePalavras) {
+  const palavras = listaDePalavras;
+
+  const elemento = document.getElementById(idElemento);
+  if (!elemento) return;
+
+  let i = 0;
+
+  // inicia com a primeira palavra
+  elemento.textContent = palavras[i];
+
+  setInterval(() => {
+
+    // SAÍDA suave
+    elemento.classList.add("hidden");
+
+    // espera a animação terminar antes de trocar o texto
+    setTimeout(() => {
+      i = (i + 1) % palavras.length;
+      elemento.textContent = palavras[i];
+      
+      // ENTRADA suave
+      elemento.classList.remove("hidden");
+    }, 600); // mesmo tempo do transition
+  }, 3000);
+}
+
+troca("h2", "Tecnologia", "Horta", "Horários", "Técnica");
