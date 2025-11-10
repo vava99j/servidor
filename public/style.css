@@ -33,7 +33,7 @@
   --fundo-claro: #f8f9fa;
   --fundo-escuro: #1c1c1c;
   --texto-claro: #f1f1f1;
-  --texto-escuro: #333;
+  --texto-escuro: #4d4d4d;
 }
 
 * {
@@ -277,15 +277,15 @@ section h2 {
 .sobre-missao a {
   display: inline-block;
   margin-top: 15px;
-  background-color: var(--verde);
   padding: 10px 20px;
   border-radius: 8px;
   text-decoration: none;
   transition: 0.3s;
-  color: var(--fundo-claro);
+  color: var(--texto-escuro);
 }
 
 .sobre-missao a:hover {
+  color: whitesmoke;
   background-color: #1e7e34;
 }
 
