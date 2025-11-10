@@ -14,74 +14,81 @@
 <body class="light-mode">
   <nav-bar></nav-bar>
   <div id="body">
-  <header>
-    <h1> <br>Informações Técnicas ⚙</h1>
-    <p>Detalhes sobre os componentes, sensores e tecnologias da Estufa Inteligente Tec-Hor.</p>
-  </header>
-  <section class="sobre">
-    <img src="img/comp.png" alt="Componentes da Estufa">
-    <div class="sobre-texto">
-      <h2>Componentes Principais</h2>
-      <p>
-        <!-- Liste aqui os principais componentes de hardware, como Arduino, sensores, atuadores etc. -->
-      </p>
+    <header>
+      <h1> <br>Informações Técnicas ⚙</h1>
+      <p>Detalhes sobre os componentes, sensores e tecnologias da Estufa Inteligente Tec-Hor.</p>
+    </header>
+    <section class="sobre">
+      <img src="img/comp.png" alt="Componentes da Estufa">
+      <div class="sobre-texto">
+        <h2>Componentes Principais</h2>
+        <p>
+          <!-- Liste aqui os principais componentes de hardware, como Arduino, sensores, atuadores etc. -->
+        </p>
+        <ul>
+          <li>Sensor de umidade do solo</li>
+          <li>Sensor de temperatura e umidade (DHT11/DHT22)</li>
+          <li>Bomba d’água 12V</li>
+          <li>Módulo relé</li>
+          <li>Ventoinha e LEDs de crescimento</li>
+          <li>Microcontrolador (ex: Arduino Uno ou ESP32)</li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="sobre-missao">
+      <h2>Funções</h2>
       <ul>
-        <li>Sensor de umidade do solo</li>
-        <li>Sensor de temperatura e umidade (DHT11/DHT22)</li>
-        <li>Bomba d’água 12V</li>
-        <li>Módulo relé</li>
-        <li>Ventoinha e LEDs de crescimento</li>
-        <li>Microcontrolador (ex: Arduino Uno ou ESP32)</li>
+        <h3> <br>Sensor de Umidade do Solo</h3>
+        <li>
+          Esse sensor mede a quantidade de água presente na terra. Quando o solo está seco, ele envia um sinal para o
+          sistema, indicando que as plantas precisam ser irrigadas.
+        </li>
+        <h3> <br> Bomba d’água e Módulo Relé</h3>
+        <li>
+          O módulo relé funciona como um interruptor controlado pelo microcontrolador. Quando o sensor de umidade
+          detecta que o solo está seco, o relé ativa a bomba d’água, que realiza a irrigação de forma automática e
+          precisa.
+        </li>
+        <h3> <br>Ventoinha</h3>
+        <li>
+          A ventoinha é responsável por controlar a temperatura e a circulação de ar dentro da estufa. Ela ajuda a
+          evitar o superaquecimento e mantém o ambiente agradável para o crescimento das plantas.</li>
+        <h3> <br>LEDs de Crescimento</h3>
+        <li>
+          Os LEDs de crescimento fornecem a iluminação necessária para as plantas realizarem a fotossíntese, garantindo
+          o desenvolvimento saudável mesmo em locais com pouca luz natural.
+        </li>
+        <h3> <br>Microcontrolador (Arduino Uno ou ESP32)</h3>
+        <li>
+          O microcontrolador é o “cérebro” da estufa. Ele recebe os dados do sensor de umidade e decide automaticamente
+          quando acionar a bomba d’água, a ventoinha e os LEDs, mantendo o equilíbrio ideal para as plantas.</li>
       </ul>
-    </div>
-  </section>
 
-  <section class="sobre-missao">
-    <h2>Funções</h2>
-<ul>
-  <h3> <br>Sensor de Umidade do Solo</h3> 
-  <li> 
-  Esse sensor mede a quantidade de água presente na terra. Quando o solo está seco, ele envia um sinal para o sistema, indicando que as plantas precisam ser irrigadas.
-    </li> 
-    <h3> <br> Bomba d’água e Módulo Relé</h3>
-    <li> 
-    O módulo relé funciona como um interruptor controlado pelo microcontrolador. Quando o sensor de umidade detecta que o solo está seco, o relé ativa a bomba d’água, que realiza a irrigação de forma automática e precisa.
-    </li>
-    <h3> <br>Ventoinha</h3>
-    <li>
-A ventoinha é responsável por controlar a temperatura e a circulação de ar dentro da estufa. Ela ajuda a evitar o superaquecimento e mantém o ambiente agradável para o crescimento das plantas.</li>
-<h3> <br>LEDs de Crescimento</h3>   
-<li>
-Os LEDs de crescimento fornecem a iluminação necessária para as plantas realizarem a fotossíntese, garantindo o desenvolvimento saudável mesmo em locais com pouca luz natural.
-</li>
-<h3> <br>Microcontrolador (Arduino Uno ou ESP32)</h3>
-<li>
-O microcontrolador é o “cérebro” da estufa. Ele recebe os dados do sensor de umidade e decide automaticamente quando acionar a bomba d’água, a ventoinha e os LEDs, mantendo o equilíbrio ideal para as plantas.</li>
-</ul>
+    </section>
 
-  </section>
+    <section class="sobre-missao">
+      <h2>Software</h2>
+      <h3>Códigos da lógica de Controle</h3>
+      <ul>
+        <li><a href="https://github.com/vava99j/servidor" class="btn" target="_blank">GitHub | Site</a></li>
+        <li><a href="https://github.com/vava99j/tcc" class="btn" target="_blank">GitHub | App</a></li>
+        <li><a href="https://github.com/vava99j/ard" class="btn" target="_blank">GitHub | Lógica Arduino e Raspberry</a></li>
 
- <section class="sobre-missao">
-  <h2>Software</h2>
-  <h3>Códigos da lógica de Controle</h3>
-  <ul>
-    <li><a href="https:/github.com/vava99j/servidor" class="btn" target="_blank">GitHub | Site</a></li>
-    <li><a href="https:/github.com/vava99j/tcc" class="btn" target="_blank">GitHub | App</a></li>
-    <li><a href="https:/github.com/vava99j/ard" class="btn" target="_blank">GitHub | Lógica Arduino e Raspberry</a></li>
-  </ul>
+      </ul>
 
-  <h3> <br> Hospedagens web</h3>
-  <ul>
-    <li><span class="btn">Banco de dados: Railway</span></li>
-    <li><span class="btn">API: Render(APP) e Vercel(WEB)</span></li>
-  </ul>
-</section>
+      <h3> <br> Hospedagens web</h3>
+      <ul>
+        <li><span class="btn">Banco de dados: Railway</span></li>
+        <li><span class="btn">API: Render(APP) e Vercel(WEB)</span></li>
+      </ul>
+    </section>
 
 
-  <footer>
-    <p>© 2025 Tec-Hor | Todos os direitos reservados 💚</p>
-  </footer>
-</div>
+    <footer>
+      <p>© 2025 Tec-Hor | Todos os direitos reservados 💚</p>
+    </footer>
+  </div>
   <script type="module" src="navbar.js"></script>
 </body>
 
