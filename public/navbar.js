@@ -15,8 +15,7 @@ template.innerHTML = `
       <li><a href="/sobre">Sobre Nós</a></li>
       <li><a href="/infos">Infos Técnicas</a></li>
       <li><a href="/contato">Contacte-nos</a></li>
-      <li><button id="modeToggle">🌙</button></li>
-      
+      <li><a id="modeToggle">🌙</a></li>      
     
       </ul>
 
