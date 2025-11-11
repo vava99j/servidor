@@ -2,94 +2,91 @@
 <html lang="pt-BR">
 
 <head>
-  <meta charset="utf-8" />
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Infos Técnicas | Tec-Hor</title>
-  <link rel="shortcut icon" href="assets/images/47b3204c-f074-4262-87dc-d95bf20c03d6-removebg-preview-1.png"
-    type="image/x-icon" />
-  <link rel="stylesheet" href="style.css">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Infos Técnicas | Tec-Hor</title>
+    <link rel="shortcut icon" href="assets/images/47b3204c-f074-4262-87dc-d95bf20c03d6-removebg-preview-1.png"
+        type="image/x-icon" />
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body class="light-mode">
-  <nav-bar></nav-bar>
-  <div id="body">
-    <header>
-      <h1> <br>Informações Técnicas ⚙</h1>
-      <p>Detalhes sobre os componentes, sensores e tecnologias da Estufa Inteligente Tec-Hor.</p>
-    </header>
-    <section class="sobre">
-      <img src="img/comp.png" alt="Componentes da Estufa">
-      <div class="sobre-texto">
-        <h2>Componentes Principais</h2>
-        <p>
-          <!-- Liste aqui os principais componentes de hardware, como Arduino, sensores, atuadores etc. -->
-        </p>
-        <ul>
-          <li>Sensor de umidade do solo</li>
-          <li>Sensor de temperatura e umidade (DHT11/DHT22)</li>
-          <li>Bomba d’água 12V</li>
-          <li>Módulo relé</li>
-          <li>Ventoinha e LEDs de crescimento</li>
-          <li>Microcontrolador (ex: Arduino Uno ou ESP32)</li>
-        </ul>
-      </div>
-    </section>
+    <nav-bar></nav-bar>
+    <div id="body">
+        <header>
+            <h1> <br>Informações Técnicas ⚙</h1>
+            <p>Detalhes sobre os componentes, sensores e tecnologias da Estufa Inteligente Tec-Hor.</p>
+        </header>
+        <section class="sobre">
+            <img src="img/comp.png" alt="Componentes da Estufa">
+            <div class="sobre-texto">
+                <h2>Componentes Principais</h2>
+                <p>
+                    Sensor de umidade do solo, Sensor de temperatura e umidade (DHT11/DHT22), Bomba d’água 12V, Módulo relé, Ventoinha e LEDs de crescimento, Microcontrolador (ex: Arduino Uno ou ESP32)
+                </p>
+            </div>
+        </section>
 
-    <section class="sobre-missao">
-      <h2>Funções</h2>
-      <ul>
-        <h3> <br>Sensor de Umidade do Solo</h3>
-        <li>
-          Esse sensor mede a quantidade de água presente na terra. Quando o solo está seco, ele envia um sinal para o
-          sistema, indicando que as plantas precisam ser irrigadas.
-        </li>
-        <h3> <br> Bomba d’água e Módulo Relé</h3>
-        <li>
-          O módulo relé funciona como um interruptor controlado pelo microcontrolador. Quando o sensor de umidade
-          detecta que o solo está seco, o relé ativa a bomba d’água, que realiza a irrigação de forma automática e
-          precisa.
-        </li>
-        <h3> <br>Ventoinha</h3>
-        <li>
-          A ventoinha é responsável por controlar a temperatura e a circulação de ar dentro da estufa. Ela ajuda a
-          evitar o superaquecimento e mantém o ambiente agradável para o crescimento das plantas.</li>
-        <h3> <br>LEDs de Crescimento</h3>
-        <li>
-          Os LEDs de crescimento fornecem a iluminação necessária para as plantas realizarem a fotossíntese, garantindo
-          o desenvolvimento saudável mesmo em locais com pouca luz natural.
-        </li>
-        <h3> <br>Microcontrolador (Arduino Uno ou ESP32)</h3>
-        <li>
-          O microcontrolador é o “cérebro” da estufa. Ele recebe os dados do sensor de umidade e decide automaticamente
-          quando acionar a bomba d’água, a ventoinha e os LEDs, mantendo o equilíbrio ideal para as plantas.</li>
-      </ul>
+        <section class="sobre-missao">
+            <h2>Funções</h2>
+            
+            <h3> <br>Sensor de Umidade do Solo</h3>
+            <p>
+                Esse sensor mede a quantidade de água presente na terra. Quando o solo está seco, ele envia um sinal para o
+                sistema, indicando que as plantas precisam ser irrigadas.
+            </p>
+            
+            <h3> <br> Bomba d’água e Módulo Relé</h3>
+            <p>
+                O módulo relé funciona como um interruptor controlado pelo microcontrolador. Quando o sensor de umidade
+                detecta que o solo está seco, o relé ativa a bomba d’água, que realiza a irrigação de forma automática e
+                precisa.
+            </p>
+            
+            <h3> <br>Ventoinha</h3>
+            <p>
+                A ventoinha é responsável por controlar a temperatura e a circulação de ar dentro da estufa. Ela ajuda a
+                evitar o superaquecimento e mantém o ambiente agradável para o crescimento das plantas.
+            </p>
+            
+            <h3> <br>LEDs de Crescimento</h3>
+            <p>
+                Os LEDs de crescimento fornecem a iluminação necessária para as plantas realizarem a fotossíntese, garantindo
+                o desenvolvimento saudável mesmo em locais com pouca luz natural.
+            </p>
+            
+            <h3> <br>Microcontrolador (Arduino Uno ou ESP32)</h3>
+            <p>
+                O microcontrolador é o “cérebro” da estufa. Ele recebe os dados do sensor de umidade e decide automaticamente
+                quando acionar a bomba d’água, a ventoinha e os LEDs, mantendo o equilíbrio ideal para as plantas.
+            </p>
 
-    </section>
+        </section>
 
-    <section class="sobre-missao">
-      <h2>Software</h2>
-      <h3>Códigos da lógica de Controle</h3>
-      <ul>
-        <li><a href="https://github.com/vava99j/servidor" class="btn" target="_blank">GitHub | Site</a></li>
-        <li><a href="https://github.com/vava99j/tcc" class="btn" target="_blank">GitHub | App</a></li>
-        <li><a href="https://github.com/vava99j/ard" class="btn" target="_blank">GitHub | Lógica Arduino e Raspberry</a></li>
+        <section class="sobre-missao">
+            <h2>Software</h2>
+            
+            <h3>Códigos da lógica de Controle</h3>
+            <div class="links-software">
+                <a href="https://github.com/vava99j/servidor" class="btn" target="_blank">GitHub | Site</a>
+                <a href="https://github.com/vava99j/tcc" class="btn" target="_blank">GitHub | App</a>
+                <a href="https://github.com/vava99j/ard" class="btn" target="_blank">GitHub | Lógica Arduino e Raspberry</a>
+            </div>
 
-      </ul>
-
-      <h3> <br> Hospedagens web</h3>
-      <ul>
-        <li><span class="btn">Banco de dados: Railway</span></li>
-        <li><span class="btn">API: Render(APP) e Vercel(WEB)</span></li>
-      </ul>
-    </section>
+            <h3> <br> Hospedagens web</h3>
+            <p>
+                <span class="btn">Banco de dados: Railway</span> |
+                <span class="btn">API: Render(APP) e Vercel(WEB)</span>
+            </p>
+        </section>
 
 
-    <footer>
-      <p>© 2025 Tec-Hor | Todos os direitos reservados 💚</p>
-    </footer>
-  </div>
-  <script type="module" src="navbar.js"></script>
+        <footer>
+            <p>© 2025 Tec-Hor | Todos os direitos reservados 💚</p>
+        </footer>
+    </div>
+    <script type="module" src="navbar.js"></script>
 </body>
 
 </html>
