@@ -185,8 +185,6 @@ app.use((err, req, res, next) => {
 const PORT = 8000;
 
 
-app.use(cors());
-
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
