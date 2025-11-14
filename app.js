@@ -77,7 +77,7 @@ app.get("/arduinos/:cod_ard", async (req, res, next) => {
   }
 });
 
-app.post("/plantas", async (req, res, next) => {
+app.post("/planta", async (req, res, next) => {
   try {
     const { usuario_id, horarios, foto_url } = req.body;
     const planta = await createPlant(usuario_id, horarios, foto_url);
